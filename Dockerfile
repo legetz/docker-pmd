@@ -2,7 +2,7 @@ FROM openjdk:8-alpine
 
 ENV PMD_VERSION 6.43.0
 
-RUN apk add --update --no-cache wget unzip
+RUN apk add --update --no-cache wget unzip git
 RUN mkdir -p /opt
 
 RUN cd /opt \
