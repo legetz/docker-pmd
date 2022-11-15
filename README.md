@@ -19,3 +19,9 @@
 - Analyze all APEX classes which have been touched in last 20 GIT commits using your own ruleset `./pmd-rules.xml`
   - `git diff --name-only HEAD HEAD~20 | grep ".cls" | grep -v 'meta.xml' > pmd-checklist.txt`
   - `docker run -v $PWD:/src jokinlex/pmd:6.51.0 pmd -language apex -rulesets ./pmd-rules.xml -filelist pmd-checklist.txt`
+
+# Build and upload new version to DockerHub
+- `docker build -t jokinlex/pmd:latest .`
+- `docker image tag jokinlex/pmd:latest jokinlex/pmd:6.51.0`
+- `docker image push jokinlex/pmd:latest`
+- `docker image push jokinlex/pmd:6.51.0`
